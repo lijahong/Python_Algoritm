@@ -1,6 +1,6 @@
 from collections import deque
 
-def dfs(graph, startnode):
+def dfs(graph, startnode): # dfs 반복문 으로 구현
     visit = list()
     stack = list()
     stack.append(startnode)
@@ -22,7 +22,7 @@ def bfs(graph,startnode):
             queue.extend(graph[node])
     return visit
 
-def dfs2(graph, startnode, visit):
+def dfs2(graph, startnode, visit): # dfs 재귀 함수 로 구현
     visit[startnode] = True
     print(startnode, end=' ')
 

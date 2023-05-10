@@ -24,3 +24,30 @@ def bfs(x,y):
     return graph[n-1][m-1]
 
 print(bfs(0,0))
+
+# 불필요한 부분 없앤 코드
+
+import sys
+from collections import deque
+input = sys.stdin.readline
+
+a,b = map(int,input().split())
+miro = list()
+for _ in range(a):
+    miro.append(list(map(int,input().strip('\n'))))
+
+def bfs():
+    queue = deque([(0,0)])
+    xm = [-1,1,0,0]
+    ym = [0,0,-1,1]
+    while queue:
+            x,y = queue.popleft()
+            for i in range(len(xm)):
+                x1 = x + xm[i]
+                y1 = y + ym[i]
+                if 0<= x1 < a and 0<= y1 < b:
+                    if miro[x1][y1] == 1:
+                        miro[x1][y1] = miro[x][y] + 1
+                        queue.append([x1,y1])
+bfs()
+print(miro[a-1][b-1])

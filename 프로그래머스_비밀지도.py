@@ -18,3 +18,15 @@ def solution(n, arr1, arr2):
                 answer_row += ' '
         answer.append(answer_row)
     return answer     
+
+# 다른 사람 풀이
+# 파이썬 라이브러리 rjust는 오른쪽으로 정렬한다. 인자로 전체 자리 숫자와 빈공간을 채울 문자를 준다. 만약 빈공간이 있으면 2번째 인자로 지정한 문자로 채운다
+def solution(n, arr1, arr2):
+    answer = []
+    for i,j in zip(arr1,arr2):
+        a12 = str(bin(i|j)[2:])
+        a12=a12.rjust(n,'0')
+        a12=a12.replace('1','#')
+        a12=a12.replace('0',' ')
+        answer.append(a12)
+    return answer
